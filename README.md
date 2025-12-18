@@ -87,6 +87,13 @@ GCETTS_PROJECT/
 5️⃣ Result View (Student)
 
 ---
+### 👩‍💻 Project Author
+
+Soumili Samanta – Sole Developer & Project Owner
+
+This project has been entirely designed, developed, and implemented by Soumili Samanta as part of an academic and learning-focused initiative.
+
+Future contributors are welcome 🚀
 
 ## 📌 Installation & Setup
 
@@ -120,10 +127,4 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 mvn test
 [ User ] ⇆ [ Thymeleaf Frontend ] ⇆ [ Spring Boot Backend ] ⇆ [ MySQL Database ]
-👩‍💻 Project Author
 
-Soumili Samanta – Sole Developer & Project Owner
-
-This project has been entirely designed, developed, and implemented by Soumili Samanta as part of an academic and learning-focused initiative.
-
-Future contributors are welcome 🚀
