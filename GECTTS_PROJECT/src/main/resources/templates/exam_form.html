@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Exam Form Fillup</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <style>
+    .form-container { max-width: 500px; margin: 40px auto; background: #f5faff; border-radius: 10px; box-shadow: 0 2px 8px #e0e0e0; padding: 32px; }
+    .form-header { font-size: 1.5em; color: #00bcd4; text-align: center; margin-bottom: 24px; }
+    .form-group { margin-bottom: 18px; }
+    label { display: block; margin-bottom: 6px; color: #0097a7; }
+    input, textarea, select { width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #b2ebf2; }
+    .btn { margin-top: 18px; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <div class="form-header">Exam Form Fillup</div>
+    <form th:action="@{/student/exam-form}" th:object="${examForm}" method="post">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" th:value="${student != null} ? ${student.name} : ''" name="studentName" th:field="*{studentName}" required />
+      </div>
+      <div class="form-group">
+        <label>Roll No</label>
+        <input type="text" th:value="${student != null} ? ${student.rollno} : ''" name="rollno" th:field="*{rollno}" required />
+      </div>
+      <div class="form-group">
+        <label>Semester</label>
+        <input type="text" th:field="*{semester}" required />
+      </div>
+      <div class="form-group">
+        <label>Subjects (comma separated)</label>
+        <input type="text" th:field="*{subjects}" required />
+      </div>
+      <div class="form-group">
+        <label>Fee</label>
+        <input type="number" step="0.01" th:field="*{fee}" required />
+      </div>
+      <div class="form-group">
+        <label>Remarks</label>
+        <textarea th:field="*{remarks}" rows="2"></textarea>
+      </div>
+      <input type="hidden" th:field="*{studentEmail}" th:value="${student != null} ? ${student.email} : ''" />
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

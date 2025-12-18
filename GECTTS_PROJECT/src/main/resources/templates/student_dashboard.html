@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <style>
+    .dashboard-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    .dashboard-header {
+      background: #00bcd4;
+      color: #fff;
+      border-radius: 8px 8px 0 0;
+      padding: 18px 0 8px 0;
+      text-align: center;
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+    .dashboard-welcome {
+      text-align: center;
+      margin: 10px 0 18px 0;
+      font-size: 1.1em;
+    }
+    .dashboard-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .dashboard-card {
+      background: #f5faff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #e0e0e0;
+      width: 44%;
+      min-width: 140px;
+      padding: 18px 8px;
+      text-align: center;
+      margin-bottom: 8px;
+      transition: box-shadow 0.2s;
+    }
+    .dashboard-card:hover {
+      box-shadow: 0 4px 16px #b2ebf2;
+    }
+    .dashboard-card-icon {
+      font-size: 2.2em;
+      color: #00bcd4;
+      margin-bottom: 8px;
+    }
+    @media (max-width: 600px) {
+      .dashboard-container { max-width: 98vw; padding: 4vw; }
+      .dashboard-card { width: 98vw; min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="dashboard-header">2025-26</div>
+    <div class="dashboard-welcome">Welcome <span th:text="${modelName}">Student</span></div>
+    <div class="dashboard-cards">
+      <a class="dashboard-card" th:href="@{/student/result}" style="text-decoration:none; color:inherit;">
+        <div class="dashboard-card-icon">📄</div>
+        <div>Results</div>
+      </a>
+      <a class="dashboard-card" th:href="@{/student/details}" style="text-decoration:none; color:inherit;">
+        <div class="dashboard-card-icon">👤</div>
+        <div>Student Basic Details</div>
+      </a>
+      <a class="dashboard-card" th:href="@{/student/exam-form}" style="text-decoration:none; color:inherit;">
+        <div class="dashboard-card-icon">📝</div>
+        <div>Exam Form Fillup</div>
+      </a>
+        <!-- Fees Payment Details and Admit Card removed -->
+        <!-- <div class="dashboard-card">
+          <div class="dashboard-card-icon">💳</div>
+          <div>Fees Payment Details</div>
+        </div>
+        <div class="dashboard-card">
+          <div class="dashboard-card-icon">🎫</div>
+          <div>Admit Card</div>
+        </div> -->
+    </div>
+    <div style="text-align:center; margin-top:18px;">
+      <a class="btn" th:href="@{/logout}">Logout</a>
+    </div>
+  </div>
+  <div id="basicDetailsModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); z-index:1000; align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:10px; max-width:350px; margin:60px auto; padding:24px; box-shadow:0 2px 16px #b2ebf2; position:relative;">
+      <span style="position:absolute; top:8px; right:16px; font-size:1.5em; cursor:pointer; color:#00bcd4;" onclick="document.getElementById('basicDetailsModal').style.display='none'">&times;</span>
+      <h3 style="text-align:center; color:#00bcd4; margin-bottom:18px;">Student Basic Details</h3>
+      <div th:if="${studentDetails == null}" style="text-align:left; font-size:1em;">
+        <b>Name:</b> <span th:text="${modelName}">Name</span><br/>
+        <b>Roll No:</b> <span>-</span><br/>
+        <b>Email:</b> <span>-</span><br/>
+        <b>Phone:</b> <span>-</span><br/>
+      </div>
+      <div th:if="${studentDetails != null}" style="text-align:left; font-size:1em;">
+        <b>Name:</b> <span th:text="${studentDetails.name}">Name</span><br/>
+        <b>Roll No:</b> <span th:text="${studentDetails.rollno}">Roll</span><br/>
+        <b>Email:</b> <span th:text="${studentDetails.email}">Email</span><br/>
+        <b>Phone:</b> <span th:text="${studentDetails.phoneno}">Phone</span><br/>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var card = document.getElementById('basicDetailsCard');
+      var modal = document.getElementById('basicDetailsModal');
+      if(card && modal) {
+        card.onclick = function(e) {
+          e.preventDefault();
+          modal.style.display = 'flex';
+        };
+      }
+    });
+  </script>
+</body>
+</html>

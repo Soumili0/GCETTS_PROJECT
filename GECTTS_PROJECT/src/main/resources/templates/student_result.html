@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Student Result</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <style>
+    .result-container { max-width: 500px; margin: 0 auto; padding: 24px; background: #f5faff; border-radius: 10px; box-shadow: 0 2px 8px #e0e0e0; }
+    .result-header { font-size: 1.3em; color: #00bcd4; text-align: center; margin-bottom: 18px; }
+    .result-table { width: 100%; border-collapse: collapse; margin-top: 18px; }
+    .result-table th, .result-table td { border: 1px solid #b2ebf2; padding: 8px 12px; text-align: left; }
+    .result-table th { background: #e0f7fa; }
+    .result-label { font-weight: bold; }
+    .back-btn { display: block; margin: 24px auto 0 auto; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="result-container">
+    <div class="result-header">Your Result</div>
+    <div th:if="${student != null}">
+      <table class="result-table">
+        <tr><th colspan="2" style="text-align:center;">Student Details</th></tr>
+        <tr><th>Student Name</th><td th:text="${student.name}"></td></tr>
+        <tr><th>Roll Number</th><td th:text="${student.rollno}"></td></tr>
+        <tr><th>Email</th><td th:text="${student.email}"></td></tr>
+      </table>
+      <br/>
+      <table class="result-table">
+        <tr><th>Subject</th><th>Marks Obtained</th><th>Total Marks</th></tr>
+        <tr th:each="result : ${results}">
+          <td th:text="${result.subject}"></td>
+          <td th:text="${result.marksObtained}"></td>
+          <td th:text="${result.totalMarks}"></td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(results)}"><td colspan="3" style="text-align:center;">No results found.</td></tr>
+      </table>
+    </div>
+    <div th:if="${student == null}">
+      <p>No result found for your account.</p>
+    </div>
+    <div class="back-btn">
+      <a class="btn" th:href="@{/student_dashboard}">Back to Dashboard</a>
+    </div>
+  </div>
+</body>
+</html>

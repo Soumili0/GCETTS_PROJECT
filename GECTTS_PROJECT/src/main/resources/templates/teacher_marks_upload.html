@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Student Marks Upload</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<div class="form-box" style="max-width:600px;">
+    <h2>Student Marks Upload</h2>
+    <form th:action="@{/teacher/bulk-marks}" th:object="${marksForm}" method="post">
+        <div class="form-group">
+            <label>Student Name</label>
+            <input type="text" th:field="*{studentName}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>Roll Number</label>
+            <input type="text" th:field="*{rollNo}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>Department</label>
+            <select th:field="*{department}" class="form-control" required>
+                <option value="">--Select Department--</option>
+                <option>Computer Science And Engineering</option>
+                <option>Information Technology</option>
+                <option>Textile Technology</option>
+                <option>Appreal Technology</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Stream</label>
+            <select th:field="*{stream}" class="form-control" required>
+                <option value="">--Select Stream--</option>
+                <option value="CSE">CSE</option>
+                <option value="IT">IT</option>
+                <option value="TT">TT</option>
+                <option value="APM">APM</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Subject</label>
+            <input type="text" th:field="*{subject}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>Total Marks</label>
+            <input type="number" th:field="*{totalMarks}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>Obtained Marks</label>
+            <input type="number" th:field="*{marksObtained}" class="form-control" required />
+        </div>
+        <div style="margin-top:18px;">
+            <button type="submit" class="btn">Upload Marks</button>
+        </div>
+        <div th:if="${message}" style="margin-top:12px; color:green;">
+            <span th:text="${message}"></span>
+        </div>
+    </form>
+    <div style="margin-top:18px;">
+        <a class="btn" th:href="@{/teacher/dashboard}">Back to Dashboard</a>
+    </div>
+</div>
+</body>
+</html>

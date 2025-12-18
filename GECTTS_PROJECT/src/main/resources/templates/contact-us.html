@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div class="form-box contact-page" style="max-width:980px;">
+    <header class="contact-header">
+      <h1>Contact & HelpDesk</h1>
+      <p class="contact-subtitle">Questions about payments, exams or registration? Use the numbers below or email us — we’re here to help.</p>
+    </header>
+
+    <section class="college-card">
+      <h2>GCETTS College</h2>
+      <p><strong>Email:</strong> <a href="mailto:info@gcetts.ac.in">info@gcetts.ac.in</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+913326621058">+91 033 2662 1058</a></p>
+    </section>
+
+    <hr />
+
+    <div class="helpdesk">
+      <div class="help-card">
+        <div class="help-card-title">🔒 Online payment issues</div>
+        <div class="contact-item"><strong>Payment helpline:</strong> <a href="tel:+918282071882">8282071882</a></div>
+        <div class="contact-item"><strong>Email:</strong> <a href="mailto:sbiepay@sbi.co.in">sbiepay@sbi.co.in</a></div>
+        <div class="contact-item"><strong>24x7 support:</strong> <a href="tel:+9112220876123">+91-22-2087 6123</a></div>
+      </div>
+
+      <div class="help-card">
+        <div class="help-card-title">🛠️ Technical issues</div>
+        <div class="contact-item"><strong>Technical Helpdesk:</strong> <a href="tel:+919836319994">9836319994</a>, <a href="tel:+919830602203">9830602203</a></div>
+        <div class="contact-item"><strong>CA4 Exam Issues:</strong> <a href="tel:+913340585123">03340585123</a></div>
+      </div>
+
+      <div class="help-card">
+        <div class="help-card-title">📌 Other</div>
+        <div class="contact-item"><strong>Controller of Examinations / Transcript / Duplicate Grade Card / Duplicate Certificate:</strong> <a href="tel:+919163095323">9163095323</a></div>
+        <div class="contact-item"><strong>Registration & Migration queries:</strong> <a href="tel:+918420033960">8420033960</a>, <a href="tel:+913329991526">03329991526 Extn. - 1526</a></div>
+      </div>
+    </div>
+
+    <div class="contact-cta" style="margin-top:18px;">
+      <a class="btn" th:href="@{/}">Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

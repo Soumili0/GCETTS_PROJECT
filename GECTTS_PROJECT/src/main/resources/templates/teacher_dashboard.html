@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Teacher Dashboard</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div class="form-box" style="max-width:900px;">
+    <h2>Welcome, <span th:text="${modelName}">Teacher</span></h2>
+    <p><strong>Email:</strong> <span th:text="${modelEmail}"></span></p>
+    <p><strong>Role:</strong> Teacher</p>
+    <div style="margin: 24px 0 18px 0;">
+      <a class="btn" th:href="@{/logout}">Logout</a>
+    </div>
+    <h3>Student Marks</h3>
+    <form th:action="@{/teacher/submit-marks-bulk}" th:object="${marksForm}" method="post">
+      <table style="width:100%; border-collapse:collapse; margin-top:8px;">
+        <thead>
+          <tr style="background:#f0f0f0;">
+            <th style="padding:8px; border:1px solid #ccc;">Student Name</th>
+            <th style="padding:8px; border:1px solid #ccc;">Roll No</th>
+            <th style="padding:8px; border:1px solid #ccc;">Department</th>
+            <th style="padding:8px; border:1px solid #ccc;">Subject</th>
+            <th style="padding:8px; border:1px solid #ccc;">Total Marks</th>
+            <th style="padding:8px; border:1px solid #ccc;">Marks Obtained</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="mark,iter : *{students}">
+            <td style="padding:8px; border:1px solid #ccc;">
+              <input type="text" th:field="*{students[__${iter.index}__].studentName}" class="form-control" required />
+            </td>
+            <td style="padding:8px; border:1px solid #ccc;">
+              <input type="text" th:field="*{students[__${iter.index}__].rollNo}" class="form-control" required />
+            </td>
+            <td style="padding:8px; border:1px solid #ccc;">
+              <select th:field="*{students[__${iter.index}__].department}" class="form-control" required>
+                <option value="">--Select--</option>
+                <option value="CSE">CSE</option>
+                <option value="IT">IT</option>
+                <option value="TT">TT</option>
+                <option value="APM">APM</option>
+              </select>
+            </td>
+            <td style="padding:8px; border:1px solid #ccc;">
+              <input type="text" th:field="*{students[__${iter.index}__].subject}" class="form-control" required />
+            </td>
+            <td style="padding:8px; border:1px solid #ccc;">
+              <input type="number" th:field="*{students[__${iter.index}__].totalMarks}" class="form-control" required />
+            </td>
+            <td style="padding:8px; border:1px solid #ccc;">
+              <input type="number" th:field="*{students[__${iter.index}__].marksObtained}" class="form-control" required />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:18px;">
+        <button type="submit" class="btn">Submit All Marks</button>
+      </div>
+    </form>
+
+    <h3 style="margin-top:32px;">Student Attendance Report</h3>
+    <form th:action="@{/teacher/submit-attendance-bulk}" th:object="${attendanceForm}" method="post">
+      <table style="width:100%; border-collapse:collapse; margin-top:8px;">
+        <thead>
+          <tr style="background:#f0f0f0;">
+            <th style="padding:8px; border:1px solid #ccc;">Student Name</th>
+            <th style="padding:8px; border:1px solid #ccc;">Roll No</th>
+            <th style="padding:8px; border:1px solid #ccc;">Stream</th>
+            <th style="padding:8px; border:1px solid #ccc;">Subject</th>
+            <th style="padding:8px; border:1px solid #ccc;">Total Class</th>
+            <th style="padding:8px; border:1px solid #ccc;">Attended Class</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="att,iter : *{students}">
+            <td style="padding:8px; border:1px solid #ccc;">
+              <input type="text" th:field="*{students[__${iter.index}__].studentName}" class="form-control" required />
+            </td>
+            <td style="padding:8px; border:1px solid #ccc;">
+              <input type="text" th:field="*{students[__${iter.index}__].rollNo}" class="form-control" required />
+            </td>
+            <td style="padding:8px; border:1px solid #ccc;">
+              <select th:field="*{students[__${iter.index}__].stream}" class="form-control" required>
+                <option value="">--Select--</option>
+                <option value="CSE">CSE</option>
+                <option value="IT">IT</option>
+                <option value="TT">TT</option>
+                <option value="APM">APM</option>
+              </select>
+            </td>
+            <td style="padding:8px; border:1px solid #ccc;">
+              <input type="text" th:field="*{students[__${iter.index}__].subject}" class="form-control" required />
+            </td>
+            <td style="padding:8px; border:1px solid #ccc;">
+              <input type="number" th:field="*{students[__${iter.index}__].totalClass}" class="form-control" required />
+            </td>
+            <td style="padding:8px; border:1px solid #ccc;">
+              <input type="number" th:field="*{students[__${iter.index}__].attendance}" class="form-control" required />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:18px;">
+        <button type="submit" class="btn">Submit All Attendance</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Register</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div class="form-box">
+    <h2>Register</h2>
+    <div th:if="${errorMsg}" class="error">[[${errorMsg}]]</div>
+    <div th:if="${role} == 'STUDENT'">
+      <div class="error">You do not have register access. Please contact your admin.</div>
+    </div>
+    <form th:action="@{/regform}" method="post" th:if="${role} == 'TEACHER'">
+      <div>
+        <label>Name</label>
+        <input type="text" name="name" th:value="${name}" required />
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" name="email" th:value="${email}" required />
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" name="password" required />
+      </div>
+      <div>
+        <input type="hidden" name="role" value="TEACHER" />
+      </div>
+      <div>
+        <button type="submit">Register</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

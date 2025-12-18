@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Teachers</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div class="form-box" style="max-width:900px;">
+    <h2>Teachers</h2>
+    <div style="margin-bottom:12px;"><a class="btn" th:href="@{/admin/teachers/new}">Add Teacher</a> <a class="btn" th:href="@{/admin/dashboard}">Back</a></div>
+    <table style="width:100%; border-collapse:collapse;">
+      <thead>
+        <tr>
+          <th style="text-align:left; padding:8px;">ID</th>
+          <th style="text-align:left; padding:8px;">Name</th>
+          <th style="text-align:left; padding:8px;">Email</th>
+          <th style="text-align:left; padding:8px;">Phone</th>
+          <th style="text-align:left; padding:8px;">Subject</th>
+          <th style="text-align:left; padding:8px;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="t : ${teachers}">
+          <td th:text="${t.id}" style="padding:8px;">1</td>
+          <td th:text="${t.name}" style="padding:8px;">Name</td>
+          <td th:text="${t.email}" style="padding:8px;">email</td>
+          <td th:text="${t.phoneno}" style="padding:8px;">phone</td>
+          <td th:text="${t.subject}" style="padding:8px;">subject</td>
+          <td style="padding:8px;"><a th:href="@{'/admin/teachers/' + ${t.id} + '/edit'}">Edit</a> |
+              <form th:action="@{'/admin/teachers/' + ${t.id} + '/delete'}" method="post" style="display:inline;">
+                <button type="submit" style="background:none;border:none;color:#c00;cursor:pointer;">Delete</button>
+              </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

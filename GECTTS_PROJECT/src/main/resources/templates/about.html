@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About GCETTS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Full Background with a darker overlay for readability */
+    .bg-image {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                  url('/download.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* Top Heading Styles */
+    .main-header {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .main-header h1 {
+      font-size: clamp(3.5rem, 12vw, 5.5rem);
+      font-weight: 900;
+      color: #f9f7f7;
+      margin: 0;
+      letter-spacing: 8px;
+      text-shadow: 4px 4px 15px rgba(209, 93, 132, 0.8);
+    }
+
+    .main-header p {
+      font-size: 1.4rem;
+      color: #bfe903; /* Bright Yellow for contrast */
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: -10px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    /* Main Content Card - High Legibility */
+    .info-card {
+      background: rgba(255, 255, 255, 0.92); /* Solid white with very slight transparency */
+      border-radius: 25px;
+      padding: 50px;
+      max-width: 850px;
+      width: 100%;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+      border: 3px solid #1a73e8;
+      animation: fadeInUp 1s ease;
+    }
+
+    .about-desc {
+      font-size: 1.2rem;
+      color: #1a1a1a; /* Pure Black for maximum clarity */
+      line-height: 1.8;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .gcetts-bold {
+      color: #d32f2f; /* Dark Red */
+      font-weight: 800;
+    }
+
+    .tagline-green {
+      color: #1b5e20; /* Deep Green */
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
+      display: block;
+      margin: 20px 0;
+    }
+
+    /* Feature Grid with Dark Text */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .f-item {
+      padding: 15px;
+      background: #f1f3f4;
+      border-radius: 12px;
+      text-align: center;
+      transition: 0.3s;
+      border: 1px solid #ddd;
+    }
+
+    .f-item:hover {
+      background: #e8f0fe;
+      transform: translateY(-5px);
+    }
+
+    .f-item strong {
+      display: block;
+      color: #1a73e8; /* Blue */
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .f-item span {
+      color: #444; /* Dark Grey */
+      font-size: 0.95rem;
+    }
+
+    /* Official Link */
+    .btn-visit {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 18px 40px;
+      background: #1a1a1a; /* Black Button */
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: 0.3s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn-visit:hover {
+      background: #d32f2f;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      margin-top: 40px;
+      color: white;
+      text-align: center;
+      font-size: 1rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-image">
+    <header class="main-header">
+      <h1>GCETTS</h1>
+      <p>Government College of Engineering & Textile Technology</p>
+    </header>
+
+    <main class="info-card">
+      <div class="about-desc">
+        <p><span class="gcetts-bold">GCETTS</span> is a premier institution dedicated to providing top-tier education in engineering and textile technology. With a legacy of over a century, our college blends tradition with modernity, fostering a vibrant learning environment.</p>
+      </div>
+
+      <span class="tagline-green">Empowering Innovation & Excellence Since 1908</span>
+
+      <div class="features">
+        <div class="f-item" style="background:#e3f0fb;"><strong>Academic</strong><span>Innovative Curriculum</span></div>
+        <div class="f-item" style="background:#fffbe6;"><strong>Campus</strong><span>Modern Facilities</span></div>
+        <div class="f-item" style="background:#ffd1a9;"><strong>Industry</strong><span>Strong Tie-ups</span></div>
+        <div class="f-item" style="background:#aee9c7;"><strong>Student Life</strong><span>Dynamic Community</span></div>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="https://www.gcetts.ac.in/" target="_blank" class="btn-visit">VISIT OFFICIAL WEBSITE</a>
+      </div>
+    </main>
+
+    <!-- Departments Section (Redesigned) -->
+    <section class="info-card" style="margin-top: 40px; background: #f8fafc; border: 2px solid #1a73e8;">
+      <h2 style="color:#1a73e8; text-align:center; margin-bottom:28px; letter-spacing:2px; font-size:2.1rem;">Departments</h2>
+      <div style="display: flex; flex-direction: column; gap: 24px; align-items: center;">
+        <div style="display: flex; flex-direction: row; gap: 28px; justify-content: center; width: 100%;">
+          <!-- Computer Science & Engineering (Collapsible) -->
+          <div style="background: #b3d4f7; border-radius: 18px; box-shadow: 0 4px 18px rgba(26,115,232,0.08); border: 1.5px solid #dbeafe; max-width: 370px; min-width: 270px; flex: 1 1 320px; padding: 22px 20px 18px 20px; margin-bottom: 10px; display: flex; flex-direction: column; align-items: flex-start; cursor:pointer;" onclick="toggleDeptDesc('cse')">
+            <div style="font-size: 1.13rem; font-weight: 700; color: #1a73e8; margin-bottom: 8px; letter-spacing: 1px; user-select:none;">Computer Science & Engineering <span id='cse-arrow' style='font-size:0.9em; color:#888; margin-left:6px;'>&#9660;</span></div>
+            <div id="cse-desc" style="display:none; font-size: 8pt; color: #222; line-height: 1.7; text-align: left; font-family: 'Times New Roman', Times, serif;">
+              The Department of Computer Science and Engineering at the Government College of Engineering and Textile Technology Serampore was introduced in the year 2001. The department offers B.Tech degree in Computer Science & Engineering and the course is duly approved by the All India Council for Technical Education (AICTE), Government of India.<br><br>
+              The Department has a comprehensive curriculum on topics related to all aspects of Computer Hardware and Software with an emphasis on practical learning. The course structure is up-to-date and includes courses on nascent topics to equip the students with the latest developments in Computer Science and Engineering.<br><br>
+              Students of the department have access to sufficient high end computing facilities. The Department is also actively involved in various research activities and the facilities are adequate to cater to the needs of research activities. The department has consistently fulfilled its role of producing computer engineers ready to meet the demands of the IT world. The students have an in-depth exposure to computing environment consisting of state-of-the-art machines in different laboratories supported by high speed Ethernet and wireless networks. As the nature of Computer Science and Engineering has a never-ending cycle of innovation rooted in it, our focus is on increasing the standard of the teaching and learning to gain international importance in research and academics. Looking at the global perspective the department has identified a few thrust areas for research and development like Computational Intelligence and Information Systems, Artificial Intelligence, Data Science, Networks and Internet of Things (IoT).<br><br>
+              The department has produced a pool of quality engineers, contributing to the pride of the institute. Our Alumni pool is quite large and showcasing their hard work they occupy positions of eminence in the computer industry as a whole and remain in constant touch with us and are contributing to the development of the department.
+            </div>
+          </div>
+          <!-- Information Technology (Collapsible) -->
+          <div style="background: #aee9c7; border-radius: 18px; box-shadow: 0 4px 18px rgba(26,115,232,0.08); border: 1.5px solid #dbeafe; max-width: 370px; min-width: 270px; flex: 1 1 320px; padding: 22px 20px 18px 20px; margin-bottom: 10px; display: flex; flex-direction: column; align-items: flex-start; cursor:pointer;" onclick="toggleDeptDesc('it')">
+            <div style="font-size: 1.13rem; font-weight: 700; color: #388e3c; margin-bottom: 8px; letter-spacing: 1px; user-select:none;">Information Technology <span id='it-arrow' style='font-size:0.9em; color:#888; margin-left:6px;'>&#9660;</span></div>
+            <div id="it-desc" style="display:none; font-size: 8pt; color: #222; line-height: 1.7; text-align: left; font-family: 'Times New Roman', Times, serif;">
+              An amalgam of Computers and Telecommunications, Information Technology has changed the lives of people globally with applications apparent in every walk of life. It empowers the younger generation with knowledge of recent advancements in this sector and provides them with a platform to work in various industries such as banking, insurance, communications, E-Governance, entertainment and multimedia, scientific research, business intelligence solutions and knowledge discovery in databases etc. The Department of Information Technology at Government College of Engineering and Textile Technology Serampore, started its journey in 2000. The department offers B.Tech degree in Information Technology and the course is duly approved by the All India Council for Technical Education (AICTE), Government of India.<br><br>
+              The department has produced excellent IT engineers who are serving in different reputed organizations and pursuing higher studies at institutes of excellence. The department emphasizes on all basic subjects such as operating systems, computer architecture and design, software development, networking, multimedia and graphics, analog and digital communication and computer communications and has excellent laboratory facility which includes laboratory for operating systems, networking, data structure and database lab etc. The laboratories are equipped with well configured desktop computers. All laboratories have internet facilities. Companies like TCS, CTS, IBM, WIPRO offer campus placement to the students of the department. The department has built an impressive placement record both in terms of percentage of registered students placed, as well as the number of companies recruiting every year. The department also arranges in-house training, projects and internships with corporate organizations so that the students may get a comprehensive industry orientation helpful in polishing their skills before they start their actual careers. The graduating students of Information Technology are enriched with professional leadership qualities to excel in interdisciplinary domains. Our B.Tech program provides graduates with the skills and knowledge to take on appropriate professional positions upon graduation.
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: row; gap: 28px; justify-content: center; width: 100%;">
+          <!-- Textile Technology (Collapsible) -->
+          <div style="background: #ffe082; border-radius: 18px; box-shadow: 0 4px 18px rgba(26,115,232,0.08); border: 1.5px solid #dbeafe; max-width: 370px; min-width: 270px; flex: 1 1 320px; padding: 22px 20px 18px 20px; margin-bottom: 10px; display: flex; flex-direction: column; align-items: flex-start; cursor:pointer;" onclick="toggleDeptDesc('tt')">
+            <div style="font-size: 1.13rem; font-weight: 700; color: #d32f2f; margin-bottom: 8px; letter-spacing: 1px; user-select:none;">Textile Technology <span id='tt-arrow' style='font-size:0.9em; color:#888; margin-left:6px;'>&#9660;</span></div>
+            <div id="tt-desc" style="display:none; font-size: 8pt; color: #222; line-height: 1.7; text-align: left; font-family: 'Times New Roman', Times, serif;">
+              The Textile Technology Department is the oldest of all the departments and in fact holds the status of pioneering department of the institute.<br>
+              The Department was established on 30th November 1908 as a weaving school with a two year certificate course on offer to cater technical education to local weavers and dyers. Over the years, 3 year diploma in Textile Technology was started in 1938 and 4 year degree in Textile Technology was started in the year 1957 under affiliation of University of Calcutta. A post graduate course in Mechanical Processing of Textiles was introduced in the year 1994 and M.Tech in Chemical Processing in Textiles in 2008. The B.Tech. and M.Tech courses are duly approved by the All India Council for Technical Education (AICTE), Government of India.<br><br>
+              The department is well known for its industry institute interaction as well as pursuing fundamental and applied research. The growth of the department owes a strong support from alumni, industry and faculty. The department has industrial and academic collaboration on specialized areas of study and this has positioned the institution as the harbinger of progressive changes and innovations.<br><br>
+              The growth of the department is by virtue of highly qualified, experienced and dedicated faculty, strong industry institute interaction and alumni network. The department has fetched appreciable amounts of grants from various Government agencies and non government organizations since its inception.<br><br>
+              The huge alumni pool of the department is well established nationally and internationally at various positions in production, quality, maintenance, marketing and entrepreneurship.<br><br>
+              The program is designed to provide the students with a thorough background in fundamental concepts of scientific, technological, and management principles, and ability to define and solve challenging problems related to textiles. An essential component of the department’s mission is the development of new knowledge through innovative ideas and the subsequent transfer of this knowledge to both the textile industry and society.
+            </div>
+          </div>
+          <!-- Apparel Production Management (Collapsible) -->
+          <div style="background: #ffd1a9; border-radius: 18px; box-shadow: 0 4px 18px rgba(26,115,232,0.08); border: 1.5px solid #dbeafe; max-width: 370px; min-width: 270px; flex: 1 1 320px; padding: 22px 20px 18px 20px; margin-bottom: 10px; display: flex; flex-direction: column; align-items: flex-start; cursor:pointer;" onclick="toggleDeptDesc('apm')">
+            <div style="font-size: 1.13rem; font-weight: 700; color: #e65100; margin-bottom: 8px; letter-spacing: 1px; user-select:none;">Apparel Production Management <span id='apm-arrow' style='font-size:0.9em; color:#888; margin-left:6px;'>&#9660;</span></div>
+            <div id="apm-desc" style="display:none; font-size: 8pt; color: #222; line-height: 1.7; text-align: left; font-family: 'Times New Roman', Times, serif;">
+              The course of Apparel Production Management was introduced in the year 2007 as a part of the department of Textile Technology, to mould students to be qualified for diverse work profiles available in the apparel-manufacturing sector and to acquire the technical expertise in the field of Apparel Technology, enabling them to manage the existing & developing technologies and acquire the skills necessary to face and manage the challenges emerging in the industry.<br><br>
+              Apparel Production technology is scientific art involving fashion techniques and designing. The constant technological up gradation has brought many changes in the field of garment industries and resulted in increased export potential. It has created the need for qualified man-power, technically sound, to work on sophisticated machineries and equipments.<br><br>
+              The department offers B.Tech degree in Apparel Production Management and the course is duly approved by the All India Council for Technical Education (AICTE), Government of India.<br><br>
+              The sub-department has well equipped laboratories. The program is structured to meet the technological and managerial needs of the garment industry and to take care of the needs of placement, career growth and personal aspirations of the students. As a part of the curriculum the students of Apparel Production Management are continuously and compulsorily undergoing various internship programmes in reputed industries all over the country where they are exposed to practical knowledge on the manufacturing process, technology and machineries. Students develop understanding of production planning, merchandising, work study and quality control which provide essential operational knowledge relating to future work profiles.<br><br>
+              Our APM graduates take up plum positions in the areas of designing, production, quality assurance and merchandising in garment industry.
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+      function toggleDeptDesc(dept) {
+        var desc = document.getElementById(dept+'-desc');
+        var arrow = document.getElementById(dept+'-arrow');
+        if (desc.style.display === 'none') {
+          desc.style.display = 'block';
+          arrow.innerHTML = '&#9650;'; // up arrow
+        } else {
+          desc.style.display = 'none';
+          arrow.innerHTML = '&#9660;'; // down arrow
+        }
+      }
+      </script>
+    </section>
+
+
+
+    <footer>
+      Contact: info@gcetts.ac.in | Phone: +91-XXX-XXXXXXX
+    </footer>
+  </div>
+
+</body>
+</html>

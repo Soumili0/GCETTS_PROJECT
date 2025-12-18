@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Teacher Form</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div class="form-box" style="max-width:600px;">
+    <h2 th:text="${teacher.id} != null ? 'Edit Teacher' : 'Add Teacher'">Teacher</h2>
+    <form th:action="${teacher.id} != null ? @{/admin/teachers} : @{/admin/teachers}" th:object="${teacher}" method="post">
+      <input type="hidden" th:field="*{id}" />
+      <div>
+        <label>Name</label>
+        <input type="text" th:field="*{name}" required />
+      </div>
+      <div>
+        <label>Subject</label>
+        <input type="text" th:field="*{subject}" required />
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" th:field="*{email}" required />
+      </div>
+      <div>
+        <label>Phone</label>
+        <input type="text" th:field="*{phoneno}" />
+      </div>
+      <div>
+        <label>Primary Password</label>
+        <input type="text" th:field="*{password}" required />
+      </div>
+      <div style="margin-top:10px;">
+        <button type="submit">Save</button>
+        <a th:href="@{/admin/teachers}" style="margin-left:10px;">Cancel</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

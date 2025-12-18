@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Student Details</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <style>
+    .details-container { max-width: 500px; margin: 40px auto; background: #f5faff; border-radius: 10px; box-shadow: 0 2px 8px #e0e0e0; padding: 32px; }
+    .details-header { font-size: 1.5em; color: #00bcd4; text-align: center; margin-bottom: 24px; }
+    .details-table { width: 100%; border-collapse: collapse; }
+    .details-table th, .details-table td { text-align: left; padding: 8px 12px; }
+    .details-table th { width: 40%; color: #0097a7; }
+    .back-btn { display: block; margin: 32px auto 0 auto; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="details-container">
+    <div class="details-header">Student Basic Details</div>
+    <div th:if="${student == null}" style="color:#f00; text-align:center; font-size:1.1em; margin-bottom:18px;">No student details found.</div>
+    <table class="details-table" th:if="${student != null}">
+      <tr><th>Name</th><td th:text="${student.name}">Name</td></tr>
+      <tr><th>Roll No</th><td th:text="${student.rollno}">Roll</td></tr>
+      <tr><th>Email</th><td th:text="${student.email}">Email</td></tr>
+      <tr><th>Phone</th><td th:text="${student.phoneno}">Phone</td></tr>
+      <tr><th>Stream</th><td th:text="${student.stream}">Stream</td></tr>
+        <!-- Fees Due and Paid fields removed -->
+        <!-- <tr><th>Fees Due</th><td th:text="${student.feesDue}">0.00</td></tr>
+        <tr><th>Paid</th><td th:text="${student.feesPaid} ? 'Yes' : 'No'">Yes</td></tr> -->
+      <!-- Add more fields as needed -->
+    </table>
+    <div class="back-btn">
+      <a class="btn" th:href="@{/student_dashboard}">Back to Dashboard</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GCETTS | Smart Programming</title>
+
+    <!-- External CSS only -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<!-- MARQUEE -->
+<div class="marquee">
+    <marquee>
+        Welcome to Government College of Engineering and Textile Technology — Admissions Open 2025
+    </marquee>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">
+        <div class="logo-main">GCETTS</div>
+        <div class="logo-sub">Institution Management System</div>
+        <div class="logo-credit">Made by Mili</div>
+    </div>
+</nav>
+
+<!-- MAIN CONTENT: Role cards like the screenshot -->
+<div class="roles-page">
+    <div class="roles-list">
+        <a class="role-item about" th:href="@{/about}">
+            <div class="role-left">🏫</div>
+            <div class="role-main">
+                <div class="role-title">ABOUT OUR COLLEGE</div>
+                <div class="role-sub">Learn about GCETTS — programs, campus & contact</div>
+            </div>
+        </a>
+
+        <a class="role-item student" th:href="@{/student_login}">
+            <div class="role-left">👤</div>
+            <div class="role-main">
+                <div class="role-title">STUDENT</div>
+                <div class="role-sub">Click here to Login Portal</div>
+            </div>
+        </a>
+
+        <a class="role-item admin" th:href="@{/admin/login}">
+            <div class="role-left">🏛️</div>
+            <div class="role-main">
+                <div class="role-title">ADMINISTRATOR LOGIN</div>
+                <div class="role-sub">To Login click here....</div>
+            </div>
+        </a>
+
+        <a class="role-item teacher" th:href="@{/login(role='TEACHER')}">
+            <div class="role-left">🧑‍🏫</div>
+            <div class="role-main">
+                <div class="role-title">TEACHER / EVALUATOR</div>
+                <div class="role-sub">To Login click here....</div>
+            </div>
+        </a>
+
+
+        <a class="role-item help" th:href="@{/help}">
+            <div class="role-left">❓</div>
+            <div class="role-main">
+                <div class="role-title">HelpDesk</div>
+                <div class="role-sub">Click Here ....</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>
+        © 2024 Government College of Engineering and Textile Technology<br>
+        12, William Carey Road, Serampore, Hooghly, West Bengal – 712201<br>
+        Tel: +91 (033) 2662-1058
+    </p>
+</footer>
+
+</body>
+</html>

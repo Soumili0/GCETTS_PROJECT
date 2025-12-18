@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Administrator Login</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div class="form-box">
+    <h2>Administrator Login</h2>
+    <div th:if="${errorMsg}" class="error">[[${errorMsg}]]</div>
+
+    <form th:action="@{/Adm_Form}" method="post">
+      <div>
+        <label>Email</label>
+        <input type="email" name="email" required />
+      </div>
+
+      <div>
+        <label>Password</label>
+        <input type="password" name="password" required />
+      </div>
+
+      <div>
+        <button type="submit">Login</button>
+      </div>
+    </form>
+
+    <div style="text-align:center; margin-top:10px;">
+      <span th:if="${showRegister}">Account not found — <a th:href="@{/admin/register}">Register first</a></span>
+      <span th:unless="${showRegister}"><a th:href="@{/admin/register}">Register as Administrator</a></span>
+    </div>
+  </div>
+</body>
+</html>

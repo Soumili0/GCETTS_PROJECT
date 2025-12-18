@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Select Role</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div class="roles-wrap">
+    <h1>Select Portal</h1>
+
+    <div class="roles-grid">
+      <a class="role-card student" th:href="@{/login(role='STUDENT')}">
+        <div class="role-icon">👤</div>
+        <div class="role-title">STUDENT</div>
+        <div class="role-sub">Click here to Login Portal</div>
+      </a>
+
+      <a class="role-card admin" th:href="@{/admin/login}">
+        <div class="role-icon">🏛️</div>
+        <div class="role-title">ADMINISTRATOR</div>
+        <div class="role-sub">To Login click here....</div>
+      </a>
+
+      <a class="role-card teacher" th:href="@{/login(role='TEACHER')}">
+        <div class="role-icon">🧑‍🏫</div>
+        <div class="role-title">TEACHER / EVALUATOR</div>
+        <div class="role-sub">To Login click here....</div>
+      </a>
+
+
+
+
+      <a class="role-card help" th:href="@{/help}">
+        <div class="role-icon">❓</div>
+        <div class="role-title">HelpDesk</div>
+        <div class="role-sub">Click Here ....</div>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

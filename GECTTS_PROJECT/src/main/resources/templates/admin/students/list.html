@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Students</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div class="form-box" style="max-width:900px;">
+    <h2>Students</h2>
+    <div style="margin-bottom:12px;"><a class="btn" th:href="@{/admin/students/new}">Add Student</a> <a class="btn" th:href="@{/admin/dashboard}">Back</a></div>
+
+    <!-- Search / Filter -->
+    <form method="get" th:action="@{/admin/students}" style="margin-bottom:12px; display:flex; gap:8px; align-items:center;">
+      <input type="text" name="q" placeholder="Search name or email" th:value="${q}" style="padding:8px; border-radius:6px; border:1px solid #ddd; width:240px;" />
+      <select name="fee" style="padding:8px; border-radius:6px; border:1px solid #ddd;">
+        <option value="" th:text="'All'" th:selected="${fee == null or fee == ''}"></option>
+        <option value="paid" th:selected="${fee != null and fee == 'paid'}">Paid</option>
+        <option value="unpaid" th:selected="${fee != null and fee == 'unpaid'}">Unpaid</option>
+      </select>
+      <button type="submit" class="btn">Search</button>
+      <a class="btn" th:href="@{/admin/students}">Clear</a>
+    </form>
+
+    <div style="margin-bottom:8px; font-weight:700;">Showing <span th:text="${students.size()}">0</span> students</div>
+    <table style="width:100%; border-collapse:collapse;">
+      <thead>
+        <tr>
+          <th style="text-align:left; padding:8px;">ID</th>
+          <th style="text-align:left; padding:8px;">Name</th>
+          <th style="text-align:left; padding:8px;">Email</th>
+          <th style="text-align:left; padding:8px;">Phone</th>
+          <th style="text-align:left; padding:8px;">Stream</th>
+          <th style="text-align:left; padding:8px;">Fees Due</th>
+          <th style="text-align:left; padding:8px;">Paid</th>
+          <th style="text-align:left; padding:8px;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="s : ${students}">
+          <td th:text="${s.id}" style="padding:8px;">1</td>
+          <td th:text="${s.name}" style="padding:8px;">Name</td>
+          <td th:text="${s.email}" style="padding:8px;">email</td>
+          <td th:text="${s.phoneno}" style="padding:8px;">phone</td>
+          <td th:text="${s.stream}" style="padding:8px;">stream</td>
+          <td th:text="${s.feesDue}" style="padding:8px;">0</td>
+          <td th:text="${s.feesPaid} ? 'Yes' : 'No'" style="padding:8px;">No</td>
+          <td style="padding:8px;"><a th:href="@{'/admin/students/' + ${s.id} + '/edit'}">Edit</a> |
+              <form th:action="@{'/admin/students/' + ${s.id} + '/delete'}" method="post" style="display:inline;">
+                <button type="submit" style="background:none;border:none;color:#c00;cursor:pointer;">Delete</button>
+              </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

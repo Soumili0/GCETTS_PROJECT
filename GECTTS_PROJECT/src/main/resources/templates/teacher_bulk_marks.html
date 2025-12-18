@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Bulk Student Marks & Attendance</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div class="form-box" style="max-width:1100px;">
+    <h2>Bulk Student Marks & Attendance</h2>
+    <form th:action="@{/teacher/submit-marks-bulk}" method="post" th:object="${marksForm}">
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Roll Number</th>
+            <th>Department</th>
+            <th>Subject</th>
+            <th>Total Marks</th>
+            <th>Marks Obtained</th>
+            <th>Total Class</th>
+            <th>Attendance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="student, iterStat : ${students}">
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.rollno}"></td>
+            <td>
+              <select th:name="${'students[' + iterStat.index + '].department'}" th:value="${student.department}">
+                <option value="CSE">CSE</option>
+                <option value="IT">IT</option>
+                <option value="TEXTILE">Textile</option>
+                <option value="APM">Appreal Management</option>
+              </select>
+            </td>
+            <td><input type="text" th:name="${'students[' + iterStat.index + '].subject'}" th:value="${student.subject}" /></td>
+            <td><input type="number" th:name="${'students[' + iterStat.index + '].totalMarks'}" th:value="${student.totalMarks}" /></td>
+            <td><input type="number" th:name="${'students[' + iterStat.index + '].marksObtained'}" th:value="${student.marksObtained}" /></td>
+            <td><input type="number" th:name="${'students[' + iterStat.index + '].totalClass'}" th:value="${student.totalClass}" /></td>
+            <td><input type="number" th:name="${'students[' + iterStat.index + '].attendance'}" th:value="${student.attendance}" /></td>
+            <input type="hidden" th:name="${'students[' + iterStat.index + '].rollNo'}" th:value="${student.rollno}" />
+            <input type="hidden" th:name="${'students[' + iterStat.index + '].name'}" th:value="${student.name}" />
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:16px;">
+        <button type="submit">Submit All</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
